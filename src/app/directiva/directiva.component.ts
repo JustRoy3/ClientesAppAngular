@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 export class DirectivaComponent {
 
+  listaCurso:string[] = ['TypeScript', 'JavaScript', 'JavaSE', 'C#', 'PHP'];
+
   constructor() { }
 
 }
