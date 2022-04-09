@@ -12,7 +12,7 @@ export class DirectivaComponent {
 
   constructor() { }
 
-  mostrar(){
+  setHabilitar():void {
     this.habilitar = (this.habilitar==true) ? false : true;
   }
 
