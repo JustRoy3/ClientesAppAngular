@@ -6,8 +6,10 @@
     <div class="my-2 text-left">
       <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/clientes/form']">Crear cliente</button>
     </div>
-
-    <table class="table table-bordered table-striped">
+    <div *ngIf="clientes?.length==0" class='alert alert-info'>
+      No hay registros de clientes
+    </div>
+    <table class="table table-bordered table-striped" *ngIf="clientes?.length>0">
       <thead>
         <tr>
           <th>id</th>
@@ -15,6 +17,7 @@
           <th>apellido</th>
           <th>created at</th>
           <th>email</th>
+          <th>editar</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +27,10 @@
           <td>{{cliente.apellido}}</td>
           <td>{{cliente.createdAt}}</td>
           <td>{{cliente.email}}</td>
+          <td>
+            <button type="button" name="botonEditar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary">Editar</button>
+            <button type="button" name="botonEliminar" (click)='deleteCliente(cliente)' class="btn btn-primary">Eliminar</button>
+          </td>
         </tr>
       </tbody>
     </table>

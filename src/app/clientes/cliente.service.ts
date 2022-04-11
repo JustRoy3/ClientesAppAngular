@@ -21,4 +21,16 @@ export class ClienteService {
     return this.http.post<Cliente>(this.url, cliente, {headers: this.headers});
   }
 
+  getCliente(id:number):Observable<Cliente>{
+    return this.http.get<Cliente>(`${this.url}/${id}`);
+  }
+
+  updateCliente(cliente:Cliente):Observable<Cliente>{
+    return this.http.put<Cliente>(`${this.url}/${cliente.id}`, cliente, {headers:this.headers});
+  }
+
+  deleteCliente(id:number):Observable<Cliente>{
+    return this.http.delete<Cliente>(`${this.url}/${id}`, {headers:this.headers});
+  }
+
 }
